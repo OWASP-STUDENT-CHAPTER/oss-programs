@@ -4,7 +4,7 @@ import Link from "next/link"
 import { Header } from "@/components/Header"
 import { Bodoni_Moda, Inter } from "next/font/google"
 import { ThemeProvider } from "next-themes"
-import { FloatingSavedButton } from "@/components/floating-saved-button";
+import { FloatingSavedButton } from "@/components/FloatingSavedButton";
 import type { Metadata } from "next"
 
 const bodoni = Bodoni_Moda({

@@ -1,5 +1,5 @@
 import { getPrograms } from "@/lib/programs";
-import { BookmarkedPrograms } from "@/components/bookmarked-programs";
+import { BookmarkedPrograms } from "@/components/BookmarkedPrograms";
 
 export default function SavedProgramsPage() {
 

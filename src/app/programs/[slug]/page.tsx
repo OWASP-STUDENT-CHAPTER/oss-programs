@@ -8,7 +8,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LocalTime } from "@/components/LocalTime";
 import { cn } from "@/lib/utils";
-import { BookmarkButton } from "@/components/bookmark-button";
+import { BookmarkButton } from "@/components/BookmarkButton";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;

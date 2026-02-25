@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ComputedProgram } from "@/lib/programs";
 import { cn } from "@/lib/utils";
 import { Banknote, CircleDot, Clock, XCircle, ArrowRight } from "lucide-react";
-import { BookmarkButton } from "@/components/bookmark-button";
+import { BookmarkButton } from "@/components/BookmarkButton";
 
 interface ProgramCardProps {
     program: ComputedProgram;

@@ -13,7 +13,7 @@ import {
 import { useState } from "react";
 
 // import FloatingThemeToggle from "@/components/FloatingThemeToggle"
-import NavbarThemeToggle from "@/components/navbar-theme-toggle";
+import NavbarThemeToggle from "@/components/NavbarThemeToggle";
 
 const NavItems = ({ setOpen }: { setOpen: (open: boolean) => void }) => (
     <>
