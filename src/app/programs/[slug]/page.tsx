@@ -8,6 +8,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { LocalTime } from "@/components/LocalTime";
 import { cn } from "@/lib/utils";
+import { BookmarkButton } from "@/components/bookmark-button";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params;
@@ -85,7 +86,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
 
     return (
         <div className="container max-w-4xl mx-auto px-6 py-12 md:py-24 space-y-12 md:space-y-16 animate-reveal">
-            <div className="space-y-8">
+            <div className="relative space-y-8">
                 <div className="flex flex-wrap gap-3 text-sm">
                     <Badge className={cn("px-3 py-1 font-bold tracking-wider uppercase border outline-none gap-1.5", statusColors[program.status])}>
                         <StatusIcon className="w-3.5 h-3.5" />
@@ -94,6 +95,13 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                     <Badge variant="secondary" className="px-3 py-1 font-semibold bg-muted/50 border-none capitalize">
                         {program.category}
                     </Badge>
+
+                </div>
+                <div className="absolute top-0 right-0 z-10">
+                    <BookmarkButton
+                        slug={program.slug}
+                        size="lg"
+                    />
                 </div>
 
                 <div className="space-y-4">

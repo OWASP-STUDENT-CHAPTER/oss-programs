@@ -12,6 +12,9 @@ import {
 } from "@/components/ui/sheet";
 import { useState } from "react";
 
+// import FloatingThemeToggle from "@/components/FloatingThemeToggle"
+import NavbarThemeToggle from "@/components/navbar-theme-toggle";
+
 const NavItems = ({ setOpen }: { setOpen: (open: boolean) => void }) => (
     <>
         <Link
@@ -79,6 +82,10 @@ export function Header() {
                         <Plus className="w-4 h-4" />
                         Submit Program
                     </Link>
+
+                    <div className="pl-2 md:pl-4 border-l border-neutral-300 dark:border-neutral-600">
+                        <NavbarThemeToggle />
+                    </div>
                 </nav>
 
                 {/* Mobile Menu */}
@@ -128,8 +135,12 @@ export function Header() {
                                 <NavItems setOpen={setOpen} />
 
                                 {/* Mobile Toggle */}
-                                <div className="pt-4 border-t flex justify-center">
-                                    {/* <ThemeToggle /> */}
+                                <div className="pt-4 border-t flex items-center justify-between">
+                                    <span className="text-sm font-medium text-muted-foreground">
+                                        Dark Mode
+                                    </span>
+
+                                    <NavbarThemeToggle />
                                 </div>
 
                                 {/* Mobile Submit */}

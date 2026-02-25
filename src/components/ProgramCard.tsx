@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { ComputedProgram } from "@/lib/programs";
 import { cn } from "@/lib/utils";
 import { Banknote, CircleDot, Clock, XCircle, ArrowRight } from "lucide-react";
+import { BookmarkButton } from "@/components/bookmark-button";
 
 interface ProgramCardProps {
     program: ComputedProgram;
@@ -38,11 +39,17 @@ export function ProgramCard({ program, index }: ProgramCardProps) {
 
                 <div className="relative flex-1 space-y-4">
                     <div className="space-y-2">
-                        <div className="flex justify-between items-start gap-4">
+                        <div className="flex items-center justify-between gap-2">
                             <h3 className="font-bold text-lg md:text-xl leading-tight group-hover:text-primary transition-colors text-balance">
                                 {program.name}
                             </h3>
+
+                            <BookmarkButton
+                                slug={program.slug}
+                                size="sm"
+                            />
                         </div>
+
                         <p className="text-sm text-muted-foreground line-clamp-2 leading-relaxed text-pretty">
                             {program.description}
                         </p>
