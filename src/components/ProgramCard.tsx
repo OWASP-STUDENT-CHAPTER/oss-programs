@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils";
 import { Banknote, CircleDot, Clock, XCircle, ArrowRight } from "lucide-react";
 
 import { BookmarkButton } from "@/components/BookmarkButton";
+import { ShareButton } from "@/components/ShareButton";
 
 interface ProgramCardProps {
     program: ComputedProgram;
@@ -79,7 +80,8 @@ export function ProgramCard({ program, index, matches }: ProgramCardProps) {
                                 <HighlightMatch text={program.name} matches={matches} keyName="name" />
                             </h3>
 
-                            <div className="shrink-0 pt-1">
+                            <div className="shrink-0 pt-1 flex items-center gap-1.5">
+                                <ShareButton slug={program.slug} name={program.name} />
                                 <BookmarkButton slug={program.slug} size="md" />
                             </div>
                         </div>
