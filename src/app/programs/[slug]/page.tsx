@@ -13,7 +13,7 @@ import { BookmarkButton } from "@/components/BookmarkButton";
 
 const baseUrl = process.env?.NEXT_PUBLIC_SITE_URL || "https://oss.owasptiet.com";
 
-export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
     const { slug } = await params;
     const program = getProgramBySlug(slug);
 
@@ -24,33 +24,29 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     }
 
     return {
-        title: `${program.name} Open Source Program`,
-
-        description:
-            `${program.name} is an open source contribution program. Learn about eligibility, deadlines and start contributing to open source today.`,
-
+        title: `${program.name} | OSS Opps`,
+        description: program.description,
         openGraph: {
-            title: `${program.name} Open Source Program`,
-            description:
-                `Explore ${program.name} and kickstart your journey into open source development.`,
+            title: program.name,
+            description: program.description,
             url: `${baseUrl}/programs/${slug}`,
-            // images: [
-            //     {
-            //         url: program.logo || "/og.png",
-            //         width: 1200,
-            //         height: 630
-            //     }
-            // ]
+            siteName: "OSS Opps",
+            images: [
+                {
+                    url: `${baseUrl}/programs/${slug}/opengraph-image`,
+                    width: 1200,
+                    height: 630,
+                    alt: program.name,
+                }
+            ],
+            type: "website",
         },
-
         twitter: {
             card: "summary_large_image",
-            title: `${program.name} Open Source Program`,
-            description:
-                `Learn how to contribute to ${program.name}.`,
-            // images: [program.logo || "/og.png"]
+            title: program.name,
+            description: program.description,
+            images: [`${baseUrl}/programs/${slug}/opengraph-image`],
         },
-
         alternates: {
             canonical: `/programs/${slug}`
         }
